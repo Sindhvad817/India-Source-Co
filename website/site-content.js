@@ -42,7 +42,7 @@ const SITE_CONTENT = {
     // Until you do this, the forms on the site will show an error when
     // someone tries to submit them — see README.md for details.
     // ------------------------------------------------------------------
-    web3formsAccessKey: "YOUR-WEB3FORMS-ACCESS-KEY-HERE"
+    web3formsAccessKey: "d0895ba2-e542-4436-8a1f-e12f7b96f7e6"
   },
 
   // ==========================================================================
