@@ -55,7 +55,14 @@
     document.title = `${content.company.name} — ${content.hero.headline}`;
 
     const year = new Date().getFullYear();
-    set("footer-copyright", `&copy; ${year} ${escapeHtml(content.footer.copyrightName)}. All rights reserved.`);
+    set("footer-copyright", `
+  <div style="text-align: center; line-height: 1.8;">
+    <strong>${escapeHtml(content.footer.copyrightName)}</strong>
+    <div>Operated by ${escapeHtml(content.footer.legalEntity)}</div>
+    <div>${escapeHtml(content.footer.businessAddress)}</div>
+    <div>&copy; ${year} ${escapeHtml(content.footer.copyrightName)}. All rights reserved.</div>
+  </div>
+`);
   }
 
   // --------------------------------------------------------------------
