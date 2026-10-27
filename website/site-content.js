@@ -223,7 +223,9 @@ const SITE_CONTENT = {
   // 11. FOOTER
   // ==========================================================================
   footer: {
-    copyrightName: "India Source Co."
-    // The year updates automatically — no need to change it each January.
-  }
+    copyrightName: "India Source Co.",
+  legalEntity: "Miraaya LLC",
+  businessAddress: "213 Longstone Drive, Cherry Hill, NJ 08003, USA"
+  // The year updates automatically.
+}
 };
