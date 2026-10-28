@@ -1,0 +1,82 @@
+{#- Shared page shell: head metadata, header, footer. Pages provide: title,
+    description, and optionally noindex, ogImage, ogImageAlt, schema. -#}
+{%- set pagePath = page.url | cleanUrl -%}
+{%- set canonical = meta.url + pagePath -%}
+{%- set isHome = pagePath == "/" -%}
+{%- set hp = "" if isHome else "/" -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}" />
+{%- if noindex %}
+<meta name="robots" content="noindex" />
+{%- else %}
+<link rel="canonical" href="{{ canonical }}" />
+{%- endif %}
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="{{ meta.siteName }}" />
+<meta property="og:title" content="{{ ogTitle or title }}" />
+<meta property="og:description" content="{{ description }}" />
+<meta property="og:url" content="{{ canonical }}" />
+<meta property="og:image" content="{{ meta.url }}{{ ogImage or meta.ogImage }}" />
+<meta property="og:image:alt" content="{{ ogImageAlt or meta.ogImageAlt }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="/assets/css/styles.css?v={{ 'assets/css/styles.css' | assetHash }}" />
+{%- set ld = render.homeSchema(site, meta.url, description) if isHome else schema -%}
+{%- if ld %}
+<script type="application/ld+json">{{ ld | jsonLd | safe }}</script>
+{%- endif %}
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <a href="{{ hp }}#home" class="brand">
+      <span class="brand-mark" aria-hidden="true">IS</span>
+      <span class="brand-name" id="brand-name">{{ site.company.shortName }}</span>
+    </a>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <a href="{{ hp }}#home">Home</a>
+      <a href="{{ hp }}#who-we-serve">Who We Serve</a>
+      <a href="{{ hp }}#how-it-works">How It Works</a>
+      <a href="{{ hp }}#gallery">Gallery</a>
+      <a href="{{ hp }}#custom-requests">Custom Requests</a>
+      <a href="{{ hp }}#about">About</a>
+      <a href="{{ hp }}#contact">Contact</a>
+      <a href="{{ '' if requestOnPage else hp }}#custom-requests" class="nav-cta">Start a Custom Request</a>
+    </nav>
+
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+{{ content | safe }}
+</main>
+
+{%- set explore = [] -%}
+{%- for item in collections.explore -%}
+  {%- set explore = (explore.push({ url: item.url | cleanUrl, label: item.data.exploreLabel or item.data.title }), explore) -%}
+{%- endfor %}
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <span id="footer-copyright">{{ render.footer(site, explore) | safe }}</span>
+    <a href="{{ hp }}#home">Back to top</a>
+  </div>
+</footer>
+
+<script src="/assets/js/main.js?v={{ 'assets/js/main.js' | assetHash }}" defer></script>
+</body>
+</html>

@@ -113,7 +113,9 @@ const SITE_CONTENT = {
   //    Leave "image" as "" to show an elegant placeholder until real
   //    photography is ready. To add a photo, drop a file in
   //    assets/img/collections/ and set image to that path. Set imageAlt to a
-  //    short description of the photo for screen readers.
+  //    short description of the photo for screen readers. Optionally set
+  //    href (e.g. "/indian-wedding") to link the card to its category page
+  //    once that page exists; without it, the card links to the request form.
   // ==========================================================================
   gallery: {
     heading: "Featured Collections",

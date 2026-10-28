@@ -4,7 +4,9 @@ A modern, premium static website for India Source Co. — a sourcing and
 custom-manufacturing partner connecting customers to India's designers,
 artisans, and manufacturers.
 
-Plain HTML/CSS/JS, no build step, no framework, deploys straight to Vercel.
+Plain HTML/CSS/JS with no front-end framework. [Eleventy](https://www.11ty.dev/)
+pre-renders every page to static HTML when Vercel builds the site, so
+visitors and search engines receive complete pages.
 
 ## How to Update This Website
 
@@ -16,9 +18,9 @@ website/site-content.js
 
 Open it in any text editor. Every headline, paragraph, list, and form field
 on the site is defined there in plain English, labeled with comments
-explaining what each section controls. Save the file and refresh the page
-to see your changes — you do not need to touch `index.html`, `styles.css`,
-or `main.js` for routine content edits.
+explaining what each section controls. Commit the change and Vercel rebuilds
+the site automatically — you do not need to touch `index.html`, `styles.css`,
+`main.js`, or `_lib/render.js` for routine content edits.
 
 A few rules to avoid breaking the page:
 - Keep the quotation marks (`"..."`) around every piece of text.
@@ -72,37 +74,90 @@ The same pattern works for any other image on the site.
 
 ## Running the Site Locally
 
-From this folder, run:
+Requires Node.js 20 or newer. Build the site, then start the preview server:
+
+```bash
+cd website && npm install && npm run build
+```
 
 ```bash
 python dev-server.py
 ```
 
-Then open **http://127.0.0.1:4322** in your browser. This local server
-disables caching so you always see your latest saved changes — it is not
-used in production.
+Then open **http://127.0.0.1:4322** in your browser. Re-run the build after
+each change. The local server disables caching and mimics Vercel's clean
+URLs — it is not used in production.
 
-You can also just open `website/index.html` directly in a browser, though
-some browsers restrict local file access in ways a real server avoids.
+`npm run build` also runs `scripts/check.mjs`, which fails the build if a
+page is missing its title, description, canonical URL, or H1, has a broken
+internal link or image, has an image without alt text, has a form without
+lead-source fields, or is missing from the sitemap. A failed build never
+goes live — Vercel keeps the previous version online.
 
 ## Deploying
 
-This is a static site — it can be deployed to Vercel, Netlify, GitHub
-Pages, or any static host by pointing the host at the `website/` folder.
-No build command is required.
+Vercel builds and deploys automatically on every push. Pushes to `master`
+go to production; pushes to any other branch create a preview deployment.
+The repository is connected to two Vercel projects with different Root
+Directory settings, so there is one config file for each:
+
+| Vercel project | Root Directory | Config file |
+|---|---|---|
+| `india-source-co` | repository root | `vercel.json` |
+| `india-source-co-4y14` | `website` | `website/vercel.json` |
+
+Keep their routing settings (clean URLs, redirects, cache headers)
+identical — the build check fails if they differ.
+
+## Search Engine Setup
+
+- **Sitemap and robots.txt** are generated at build time
+  (`website/sitemap.njk`, `website/robots.njk`). Every page is added to the
+  sitemap automatically unless it sets `noindex: true`.
+- **Crawler policy:** search engines and AI search/answer assistants
+  (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, PerplexityBot, and
+  similar) are allowed. Crawlers that collect content only for AI model
+  training (GPTBot, ClaudeBot, Google-Extended, CCBot, and others) are opted
+  out. This is an owner decision — change `website/robots.njk` only if that
+  decision changes.
+- **Structured data** describes only facts already shown on the site.
+- **CSS and JavaScript** links get a content fingerprint (`?v=…`)
+  automatically, so there's no version number to update by hand.
+
+## Inquiry Tracking
+
+Every form submission includes hidden fields so each inquiry email shows
+where it came from:
+
+- `landing_page` and `inquiry_category`: the page and category the form was
+  sent from (also shown in the email subject).
+- `first_landing_page`, `first_referrer`, `utm_source`, `utm_medium`,
+  `utm_campaign`, `utm_term`, `utm_content`: how the visitor first arrived.
+  This is remembered for 90 days in the visitor's own browser and is sent
+  only when they submit a form.
 
 ## Project Structure
 
 ```
 India Source Co/
 ├── website/
-│   ├── index.html            Page structure (rarely needs editing)
-│   ├── site-content.js       ALL editable content — start here
+│   ├── site-content.js       ALL editable homepage content — start here
+│   ├── index.html            Homepage layout (Eleventy template)
+│   ├── 404.njk               "Page not found" page
+│   ├── robots.njk            Generates robots.txt
+│   ├── sitemap.njk           Generates sitemap.xml
+│   ├── _includes/layouts/    Shared page shell: head metadata, header, footer
+│   ├── _lib/render.js        Turns site-content.js into page HTML at build time
+│   ├── _data/                Build-time data (site-content loader, site URL)
+│   ├── scripts/check.mjs     Post-build quality checks
+│   ├── eleventy.config.js    Build configuration
+│   ├── vercel.json           Vercel settings (india-source-co-4y14 project)
 │   └── assets/
 │       ├── css/styles.css    Visual design
-│       ├── js/main.js        Renders site-content.js onto the page
-│       ├── img/               Photos (add your own here)
-│       └── files/             Downloadable files, if any
+│       ├── js/main.js        Mobile menu, form sending, inquiry tracking
+│       ├── fonts/            Self-hosted Fraunces and Inter fonts
+│       └── img/              Photos (add your own here)
+├── vercel.json               Vercel settings (india-source-co project)
 ├── dev-server.py             Local preview server
 └── README.md                 This file
 ```
