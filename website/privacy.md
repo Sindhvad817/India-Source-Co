@@ -42,7 +42,7 @@ Our website does not set cookies.
 
 ## Analytics and advertising
 
-We do not currently use analytics or advertising services such as Google Analytics, and we do not use advertising cookies or tracking pixels. If that changes, we will update this policy.
+We do not currently use analytics or advertising services such as Google Analytics, and we do not use advertising cookies or tracking pixels.
 
 ## How forms are processed
 
@@ -67,21 +67,21 @@ We use the information you send us to:
 - coordinate any order you decide to place;
 - understand which pages and sources lead to inquiries, so we can improve our website.
 
-We do not sell your personal information.
+We do not sell customer personal information.
 
 ## When we share information
 
-To find options or fulfill an order, we may share the details of your request, such as descriptions, photos, sizes, and quantities, with designers, artisans, and manufacturers, primarily in India. We share your contact details with them only when that's needed to complete an order you've approved.
+To evaluate or fulfill an inquiry, we may share product specifications, measurements, photographs, and order requirements with relevant suppliers in India, such as designers, artisans, and manufacturers. We share your contact details with suppliers only when it is operationally necessary.
 
 We also rely on service providers that process information on our behalf, such as Web3Forms, Vercel, and our email provider. We may disclose information when required by law.
 
 ## How long we keep information
 
-We keep inquiry emails and related records for as long as we need them to respond to you, prepare quotes, complete orders, and maintain our business records, and we delete them when they're no longer needed.
+We retain inquiry records for legitimate business purposes, such as responding to you, preparing quotes, fulfilling orders, and keeping business records, and we handle them according to applicable requirements.
 
 ## Your choices
 
-You can ask us to access, correct, or delete the personal information you've sent us by emailing [hello@indiasourceco.com](mailto:hello@indiasourceco.com). You can also clear the browser storage described above at any time.
+You may contact us at [hello@indiasourceco.com](mailto:hello@indiasourceco.com) to request access to, correction of, or deletion of your information. Requests are subject to applicable legal and recordkeeping obligations. You can also clear the browser storage described above at any time.
 
 ## Children's privacy
 
@@ -89,7 +89,7 @@ Our website is intended for adults and is not directed to children under 13. We 
 
 ## Security and location
 
-Information you send through our website is encrypted in transit (HTTPS). No method of transmission or storage is completely secure, but we take reasonable steps to protect the information we receive. Because we work with suppliers in India and use service providers that may operate in several countries, your information may be processed outside the country where you live.
+Information you send through our website is encrypted in transit (HTTPS). No method of transmission or storage is completely secure. Because we work with suppliers in India and use service providers that may operate in several countries, your information may be processed outside the country where you live.
 
 ## Changes to this policy
 
