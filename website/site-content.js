@@ -120,12 +120,12 @@ const SITE_CONTENT = {
     collections: [
       { title: "Women's Fashion", image: "", description: "Sarees, lehengas, everyday and occasion wear." },
       { title: "Men's Fashion", image: "", description: "Sherwanis, kurtas, and tailored occasion wear." },
-      { title: "Kids", image: "", description: "Festival and celebration wear for little ones." },
-      { title: "Jewelry", image: "", description: "Fine and fashion jewelry, custom and curated." },
-      { title: "Home Décor", image: "", description: "Textiles, art, and accents for the home." },
-      { title: "Educational Materials", image: "", description: "Curriculum, books, and classroom resources." },
+      { title: "Kids' Fashion", image: "", description: "Festival and celebration wear for little ones." },
       { title: "Wedding Collection", image: "", description: "Attire, favors, welcome bags, and décor." },
-      { title: "Corporate Gifts", image: "", description: "Branded and curated gifting for teams and clients." }
+      { title: "Educational Materials", image: "", description: "Curriculum, books, and classroom resources." },
+      { title: "Home Décor", image: "", description: "Textiles, art, and accents for the home." },
+      { title: "Corporate Gifts", image: "", description: "Branded and curated gifting for teams and clients." },
+      { title: "Custom Branded Items", image: "", description: "Custom branded merchandise, promotional products, and packaging made to your design." }
     ],
     footnote: "Don't see what you're picturing? That's the point — tell us what you need below."
   },
