@@ -9,7 +9,7 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ meta.url }}{{ item.url | cleanUrl }}</loc>
     {%- if item.data.updated %}
-    <lastmod>{{ item.data.updated }}</lastmod>
+    <lastmod>{{ item.data.updated | isoDate }}</lastmod>
     {%- endif %}
   </url>
 {%- endif %}

@@ -100,6 +100,29 @@ for (const file of htmlFiles) {
   }
 }
 
+// Landing pages: enough original content, and no paragraph reused across pages
+const MIN_UNIQUE_WORDS = 600;
+const MIN_FAQS = 4;
+const seen = new Map(); // normalized text block -> first page using it
+for (const file of htmlFiles) {
+  const rel = path.relative(SITE, file);
+  const html = readFileSync(file, "utf8");
+  // Page-specific content is wrapped in <!-- unique:start --> … <!-- unique:end --> by the landing layout
+  const regions = [...html.matchAll(/<!-- unique:start -->([\s\S]*?)<!-- unique:end -->/g)].map((m) => m[1]);
+  if (!regions.length) continue;
+  const text = decode(regions.join(" ").replace(/<[^>]+>/g, " "));
+  const words = text.split(/\s+/).filter(Boolean).length;
+  if (words < MIN_UNIQUE_WORDS) fail(rel, `has ${words} words of page-specific content (minimum ${MIN_UNIQUE_WORDS})`);
+  const faqs = (html.match(/class="faq-item"/g) || []).length;
+  if (faqs < MIN_FAQS) fail(rel, `has ${faqs} FAQs (minimum ${MIN_FAQS})`);
+  for (const block of regions.join(" ").match(/<(p|li)\b[^>]*>[\s\S]*?<\/\1>/g) || []) {
+    const norm = decode(block.replace(/<[^>]+>/g, " ")).toLowerCase().replace(/\s+/g, " ").trim();
+    if (norm.length < 80) continue;
+    if (seen.has(norm) && seen.get(norm) !== rel) fail(rel, `repeats a paragraph from ${seen.get(norm)}: "${norm.slice(0, 60)}…"`);
+    else seen.set(norm, rel);
+  }
+}
+
 // Sitemap lists exactly the indexable pages
 const sitemap = readFileSync(path.join(SITE, "sitemap.xml"), "utf8");
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);

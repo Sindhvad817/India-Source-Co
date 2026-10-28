@@ -7,6 +7,9 @@ import * as render from "./_lib/render.js";
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 
+// "/about.html" -> "/about", "/index.html" -> "/" (Vercel serves clean URLs)
+const cleanUrl = (url) => String(url).replace(/\/index\.html$/, "/").replace(/\.html$/, "");
+
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("favicon.svg");
@@ -19,11 +22,16 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("assetHash", (file) =>
     createHash("sha256").update(readFileSync(path.join(ROOT, file))).digest("hex").slice(0, 10));
 
-  // "/about.html" -> "/about", "/index.html" -> "/" (Vercel serves clean URLs)
-  eleventyConfig.addFilter("cleanUrl", (url) =>
-    String(url).replace(/\/index\.html$/, "/").replace(/\.html$/, ""));
+  eleventyConfig.addFilter("cleanUrl", cleanUrl);
 
   eleventyConfig.addFilter("jsonLd", render.jsonLd);
+
+  // Front matter dates (updated: 2026-10-28) -> "2026-10-28"
+  eleventyConfig.addFilter("isoDate", (d) => (d instanceof Date ? d.toISOString().slice(0, 10) : String(d)));
+
+  // Look up pages by clean URL, keeping the given order: collection | relatedTo(urls)
+  eleventyConfig.addFilter("relatedTo", (collection, urls) =>
+    (urls || []).map((u) => collection.find((item) => cleanUrl(item.url) === u)).filter(Boolean));
 
   // Pages listed in the footer Explore links (front matter: explore: true)
   eleventyConfig.addCollection("explore", (api) =>

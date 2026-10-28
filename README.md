@@ -124,6 +124,28 @@ identical — the build check fails if they differ.
 - **CSS and JavaScript** links get a content fingerprint (`?v=…`)
   automatically, so there's no version number to update by hand.
 
+## Landing Pages
+
+Category pages live in `website/pages/` as Markdown files. The folder path
+becomes the URL: `pages/diwali/diwali-decorations.md` is served at
+`/diwali/diwali-decorations`. Front matter holds the title, description,
+H1, intro, photo, FAQs, related pages, and the inquiry category; the body
+holds the guide content. Copy an existing page as a starting point.
+
+Content rules for every page:
+- Only publish facts the business has confirmed. Never state prices,
+  timelines, minimum order quantities, inspection promises, shipping
+  coverage, or guarantees unless they've been verified.
+- Use real product photography and describe photos as examples of a style.
+- Write original content. The build fails if a page has fewer than 600
+  words of its own content, fewer than 4 FAQs, or repeats a paragraph
+  from another page.
+
+Each page automatically gets a canonical URL, Open Graph tags, structured
+data (Service, BreadcrumbList, FAQPage — built from what the page shows),
+a sitemap entry, a footer Explore link, and a request form tagged with the
+page's inquiry category.
+
 ## Inquiry Tracking
 
 Every form submission includes hidden fields so each inquiry email shows
