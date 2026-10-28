@@ -77,7 +77,7 @@ export function footer(content, explore) {
     <div>${escapeHtml(content.footer.businessAddress)}</div>
     ${socialLinks(content, "social-links-footer")}
     ${exploreNav}
-    <div>&copy; ${year} ${copyrightName}. All rights reserved.</div>
+    <div>&copy; ${year} ${copyrightName}. All rights reserved.<span class="footer-sep" aria-hidden="true"> · </span><a class="footer-privacy" href="/privacy">Privacy Policy</a></div>
   </div>
 `;
 }

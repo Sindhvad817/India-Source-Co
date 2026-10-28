@@ -65,12 +65,12 @@ const SITE_CONTENT = {
     statement: "If it can be designed, manufactured, customized, or sourced in India, we'll help you get it.",
     points: [
       { icon: "handshake", label: "Direct relationships", description: "Real, ongoing relationships with designers, artisans, and manufacturers — not a listings platform." },
-      { icon: "factory", label: "Custom manufacturing", description: "From a single sample to a full production run, built to your specification." },
-      { icon: "layers", label: "Small batch production", description: "No minimums that force you to overbuy. We work in the quantities you actually need." },
+      { icon: "factory", label: "Custom manufacturing", description: "From samples to full production runs, built to your specification — depending on what each maker can produce." },
+      { icon: "layers", label: "Small batch production", description: "Need a small quantity? Minimum order quantities vary by product and maker, and we'll confirm them before you commit." },
       { icon: "compass", label: "Personal sourcing", description: "Tell us what you're picturing — even without a photo — and we'll help track it down." },
-      { icon: "shield-check", label: "Quality control", description: "Every order is inspected before it ships, so what you approved is what arrives." },
+      { icon: "shield-check", label: "Quality control", description: "Quality checks can be arranged before shipment. We'll confirm which checks apply to your order in your quote." },
       { icon: "sliders", label: "Customization", description: "Colors, sizes, materials, packaging, branding — made to fit your vision." },
-      { icon: "globe", label: "Worldwide shipping", description: "Delivered to your door, wherever you are." }
+      { icon: "globe", label: "Shipping", description: "Shipping options depend on the product and destination. We'll confirm them for your order in your quote." }
     ]
   },
 
@@ -198,9 +198,9 @@ const SITE_CONTENT = {
     steps: [
       { number: "01", icon: "edit-3", title: "Submit your request", description: "Tell us what you're looking for through our Custom Request form — as much or as little detail as you have." },
       { number: "02", icon: "search", title: "We source or design options", description: "We tap our network of designers, artisans, and manufacturers to bring back real options." },
-      { number: "03", icon: "file-text", title: "Receive your quote", description: "A clear, transparent quote covering product, customization, and shipping." },
-      { number: "04", icon: "check-circle", title: "Approve production", description: "Once you approve, we move into sampling and production on your timeline." },
-      { number: "05", icon: "package", title: "We inspect, ship, and deliver", description: "Every order is quality-checked before it ships worldwide to your door." }
+      { number: "03", icon: "file-text", title: "Receive your quote", description: "A clear, transparent quote covering the product, customization, and the shipping options available for your order." },
+      { number: "04", icon: "check-circle", title: "Approve production", description: "Nothing is made until you approve. Then we move into sampling, where needed, and production on a schedule we confirm with you." },
+      { number: "05", icon: "package", title: "Quality checks and delivery", description: "Any quality checks and shipping arrangements are confirmed in your quote, and we keep you updated until your order arrives." }
     ]
   },
 
@@ -212,10 +212,10 @@ const SITE_CONTENT = {
     points: [
       { icon: "handshake", label: "Direct sourcing relationships" },
       { icon: "factory", label: "Custom manufacturing" },
-      { icon: "layers", label: "Small and large orders" },
+      { icon: "layers", label: "Small and large requests" },
       { icon: "compass", label: "Personalized service" },
-      { icon: "shield-check", label: "Quality inspections before shipment" },
-      { icon: "globe", label: "Worldwide shipping" },
+      { icon: "shield-check", label: "Quality checks agreed per order" },
+      { icon: "globe", label: "Shipping options quoted per order" },
       { icon: "message-circle", label: "Transparent communication" }
     ]
   },
@@ -227,7 +227,7 @@ const SITE_CONTENT = {
     heading: "We finally make it easy to buy from India.",
     paragraphs: [
       "India Source Co. was built on a simple idea: you shouldn't need years of relationships, fluency in manufacturing logistics, or a translator to get something beautiful made or sourced in India. We do that work so you don't have to.",
-      "We're not a marketplace and we're not drop-shipping generic inventory. We work directly with designers, artisans, and manufacturers across India, and we personally manage sourcing, customization, quality control, and shipping for every order — from a single family gift to a large corporate or wholesale run.",
+      "We're not a marketplace and we're not drop-shipping generic inventory. We work directly with designers, artisans, and manufacturers across India, and we personally manage sourcing, customization, and communication for each order — including any quality checks and shipping arrangements agreed in your quote — whether it's a family gift or a large corporate or wholesale run.",
       "Our goal is simple: when you need something from India, you know exactly who to call."
     ],
     expansion: {

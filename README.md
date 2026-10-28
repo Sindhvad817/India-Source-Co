@@ -136,6 +136,11 @@ where it came from:
   This is remembered for 90 days in the visitor's own browser and is sent
   only when they submit a form.
 
+The privacy policy (`website/privacy.md`, served at `/privacy`) describes
+exactly these forms, Web3Forms, this browser storage, and Vercel hosting.
+If you add analytics, cookies, new form fields, or another service, update
+the policy at the same time.
+
 ## Project Structure
 
 ```
@@ -143,6 +148,7 @@ India Source Co/
 ├── website/
 │   ├── site-content.js       ALL editable homepage content — start here
 │   ├── index.html            Homepage layout (Eleventy template)
+│   ├── privacy.md            Privacy policy (/privacy)
 │   ├── 404.njk               "Page not found" page
 │   ├── robots.njk            Generates robots.txt
 │   ├── sitemap.njk           Generates sitemap.xml
