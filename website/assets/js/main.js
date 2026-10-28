@@ -28,7 +28,9 @@
     "check-circle": '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
     package: '<line x1="16.5" y1="9.4" x2="7.5" y2="4.21"/><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/>',
     "message-circle": '<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>',
-    mail: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>'
+    mail: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+    instagram: '<rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>',
+    facebook: '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>'
   };
 
   function icon(name, cls) {
@@ -47,6 +49,16 @@
     if (node) node.innerHTML = html;
   }
 
+  // Miraaya Designs social icons — used in the Miraaya section and the footer
+  function socialLinks(content, cls) {
+    const links = (content.miraaya && content.miraaya.social) || [];
+    if (!links.length) return "";
+    const items = links.map((s) => `
+      <li><a class="social-link" href="${escapeHtml(s.href)}" target="_blank" rel="noopener noreferrer" aria-label="Miraaya Designs on ${escapeHtml(s.label)} (opens in a new tab)" title="Miraaya Designs on ${escapeHtml(s.label)}">${icon(s.icon)}</a></li>
+    `).join("");
+    return `<ul class="social-links ${cls || ""}" aria-label="Miraaya Designs on social media">${items}</ul>`;
+  }
+
   // --------------------------------------------------------------------
   // Header / footer
   // --------------------------------------------------------------------
@@ -60,7 +72,8 @@
     <strong>${escapeHtml(content.footer.copyrightName)}</strong>
     <div>Operated by ${escapeHtml(content.footer.legalEntity)}</div>
     <div>${escapeHtml(content.footer.businessAddress)}</div>
-    <div>&copy; ${year} ${escapeHtml(content.footer.copyrightName)}. All rights reserved.</div>
+    ${socialLinks(content, "social-links-footer")}
+    <div>&copy;${year} ${escapeHtml(content.footer.copyrightName)}. All rights reserved.</div>
   </div>
 `);
   }
@@ -182,6 +195,7 @@
             <h2>${escapeHtml(m.heading)}</h2>
             <p class="miraaya-intro">${escapeHtml(m.intro)}</p>
             <a class="btn btn-primary" href="${escapeHtml(m.button.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(m.button.label)} (opens in a new tab)">${escapeHtml(m.button.label)}</a>
+            ${socialLinks(content, "social-links-miraaya")}
             ${note}
           </div>
           ${media}

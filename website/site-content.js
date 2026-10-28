@@ -141,12 +141,20 @@ const SITE_CONTENT = {
   //     With image left as "", the section shows as a clean centered banner;
   //     once set, the photo appears beside the text (stacked on phones).
   //     Set eyebrow or note to "" to hide that line.
+  //
+  //     "social" lists Miraaya Designs' social media links. They appear as
+  //     icons beneath the Etsy button AND in the site footer. "icon" can be
+  //     "instagram" or "facebook". Remove an entry to hide that icon.
   // ==========================================================================
   miraaya: {
     eyebrow: "Our Sister Brand",
     heading: "Discover Miraaya Designs",
     intro: "Explore our curated collection of Indian-inspired fashion, accessories, and unique finds through Miraaya Designs, our sister brand operated by Miraaya LLC.",
     button: { label: "Shop Our Etsy Collection", href: "https://www.etsy.com/shop/MiraayaDesigns" },
+    social: [
+      { label: "Instagram", icon: "instagram", href: "https://www.instagram.com/miraayabykrupa/" },
+      { label: "Facebook", icon: "facebook", href: "https://www.facebook.com/share/g/1daQhnW9Ej/" }
+    ],
     note: "India Source Co. and Miraaya Designs are both operated by Miraaya LLC.",
     image: "",
     imageAlt: "A selection from Miraaya Designs"
