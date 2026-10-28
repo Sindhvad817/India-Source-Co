@@ -131,6 +131,28 @@ const SITE_CONTENT = {
   },
 
   // ==========================================================================
+  // 5b. MIRAAYA DESIGNS — dedicated Etsy shopping section. Sits between
+  //     Featured Collections and Custom Requests, and is separate from the
+  //     collection cards (which do not link to Etsy).
+  //
+  //     To add your promotional photograph later: save it in
+  //     assets/img/miraaya/ (landscape, about 1600 x 1200 px, under 300 KB)
+  //     and set image to its path, e.g. "assets/img/miraaya/promo.jpg".
+  //     With image left as "", the section shows as a clean centered banner;
+  //     once set, the photo appears beside the text (stacked on phones).
+  //     Set eyebrow or note to "" to hide that line.
+  // ==========================================================================
+  miraaya: {
+    eyebrow: "Our Sister Brand",
+    heading: "Discover Miraaya Designs",
+    intro: "Explore our curated collection of Indian-inspired fashion, accessories, and unique finds through Miraaya Designs, our sister brand operated by Miraaya LLC.",
+    button: { label: "Shop Our Etsy Collection", href: "https://www.etsy.com/shop/MiraayaDesigns" },
+    note: "India Source Co. and Miraaya Designs are both operated by Miraaya LLC.",
+    image: "",
+    imageAlt: "A selection from Miraaya Designs"
+  },
+
+  // ==========================================================================
   // 6. CUSTOM REQUESTS — the heart of the business. The inquiry form fields
   //    are defined here so you can reorder or relabel them without touching
   //    any other file. "type" can be: text, email, tel, textarea, select, file.
