@@ -151,7 +151,7 @@
     const g = content.gallery;
     const cards = g.collections.map(c => {
       const media = c.image
-        ? `<img src="${c.image}" alt="${escapeHtml(c.title)}" loading="lazy" />`
+        ? `<img src="${escapeHtml(c.image)}" alt="${escapeHtml(c.imageAlt || c.title)}" width="800" height="1000" loading="lazy" decoding="async" />`
         : `<span class="placeholder-mark">${escapeHtml(c.title.charAt(0))}</span>`;
       return `
         <a class="collection-card" href="#custom-requests">

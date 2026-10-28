@@ -112,18 +112,19 @@ const SITE_CONTENT = {
   // 5. FEATURED COLLECTIONS (Gallery) — curated categories, not a full catalog.
   //    Leave "image" as "" to show an elegant placeholder until real
   //    photography is ready. To add a photo, drop a file in
-  //    assets/img/collections/ and set image to that path.
+  //    assets/img/collections/ and set image to that path. Set imageAlt to a
+  //    short description of the photo for screen readers.
   // ==========================================================================
   gallery: {
     heading: "Featured Collections",
     intro: "A curated look at what we source and make — not an exhaustive catalog. Every collection is a starting point for a conversation, not the limit of what's possible.",
     collections: [
-      { title: "Women's Fashion", image: "", description: "Sarees, lehengas, everyday and occasion wear." },
-      { title: "Men's Fashion", image: "", description: "Sherwanis, kurtas, and tailored occasion wear." },
-      { title: "Kids' Fashion", image: "", description: "Festival and celebration wear for little ones." },
+      { title: "Women's Fashion", image: "assets/img/collections/womens-fashion.webp", imageAlt: "Woman wearing a bright pink traditional Indian lehenga with gold woven motifs, a matching draped dupatta, and gold jewelry", description: "Sarees, lehengas, everyday and occasion wear." },
+      { title: "Men's Fashion", image: "assets/img/collections/mens-fashion.webp", imageAlt: "Plum sherwani-style jacket with multicolor floral embroidery, a mandarin collar, gold buttons, and a brooch, displayed on a mannequin", description: "Sherwanis, kurtas, and tailored occasion wear." },
+      { title: "Kids' Fashion", image: "assets/img/collections/kids-fashion.webp", imageAlt: "Girl wearing a purple traditional outfit with silver floral embroidery and a flowing purple skirt", description: "Festival and celebration wear for little ones." },
       { title: "Wedding Collection", image: "", description: "Attire, favors, welcome bags, and décor." },
       { title: "Educational Materials", image: "", description: "Curriculum, books, and classroom resources." },
-      { title: "Home Décor", image: "", description: "Textiles, art, and accents for the home." },
+      { title: "Home Décor", image: "assets/img/collections/home-decor.webp", imageAlt: "Five decorative tea-light candle holders wrapped in green, orange, red, pink, and blue thread with a woven gold ribbon pattern", description: "Textiles, art, and accents for the home." },
       { title: "Corporate Gifts", image: "", description: "Branded and curated gifting for teams and clients." },
       { title: "Custom Branded Items", image: "", description: "Custom branded merchandise, promotional products, and packaging made to your design." }
     ],
