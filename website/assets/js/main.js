@@ -67,13 +67,15 @@
     document.title = `${content.company.name} — ${content.hero.headline}`;
 
     const year = new Date().getFullYear();
+    // Avoid "Co.." when the name already ends with a period
+    const copyrightName = escapeHtml(content.footer.copyrightName).replace(/\.$/, "");
     set("footer-copyright", `
   <div style="text-align: center; line-height: 1.8;">
     <strong>${escapeHtml(content.footer.copyrightName)}</strong>
     <div>Operated by ${escapeHtml(content.footer.legalEntity)}</div>
     <div>${escapeHtml(content.footer.businessAddress)}</div>
     ${socialLinks(content, "social-links-footer")}
-    <div>&copy;${year} ${escapeHtml(content.footer.copyrightName)}. All rights reserved.</div>
+    <div>&copy; ${year} ${copyrightName}. All rights reserved.</div>
   </div>
 `);
   }
