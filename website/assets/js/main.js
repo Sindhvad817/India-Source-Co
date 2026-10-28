@@ -161,6 +161,36 @@
   }
 
   // --------------------------------------------------------------------
+  // Miraaya Designs (Etsy promo band)
+  // --------------------------------------------------------------------
+  function renderMiraaya(content) {
+    const m = content.miraaya;
+    if (!m) return;
+
+    const eyebrow = m.eyebrow ? `<span class="eyebrow">${escapeHtml(m.eyebrow)}</span>` : "";
+    const media = m.image
+      ? `<div class="miraaya-media"><img src="${escapeHtml(m.image)}" alt="${escapeHtml(m.imageAlt || m.heading)}" loading="lazy" /></div>`
+      : "";
+    const note = m.note ? `<p class="miraaya-note">${escapeHtml(m.note)}</p>` : "";
+    const state = m.image ? "miraaya-has-image" : "miraaya-no-image";
+
+    set("miraaya-inner", `
+      <div class="miraaya-wrap ${state}">
+        <div class="miraaya-grid">
+          <div class="miraaya-copy">
+            ${eyebrow}
+            <h2>${escapeHtml(m.heading)}</h2>
+            <p class="miraaya-intro">${escapeHtml(m.intro)}</p>
+            <a class="btn btn-primary" href="${escapeHtml(m.button.href)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(m.button.label)} (opens in a new tab)">${escapeHtml(m.button.label)}</a>
+            ${note}
+          </div>
+          ${media}
+        </div>
+      </div>
+    `);
+  }
+
+  // --------------------------------------------------------------------
   // Custom Requests (form)
   // --------------------------------------------------------------------
   function fieldHtml(f) {
@@ -411,6 +441,7 @@
     renderDifference(content);
     renderWhoWeServe(content);
     renderGallery(content);
+    renderMiraaya(content);
     renderCustomRequests(content);
     renderHowItWorks(content);
     renderTrust(content);
