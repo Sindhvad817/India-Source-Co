@@ -168,7 +168,7 @@ const SITE_CONTENT = {
   // ==========================================================================
   // 6. CUSTOM REQUESTS — the heart of the business. The inquiry form fields
   //    are defined here so you can reorder or relabel them without touching
-  //    any other file. "type" can be: text, email, tel, textarea, select, file.
+  //    any other file. "type" can be: text, email, tel, textarea, select.
   // ==========================================================================
   customRequests: {
     heading: "Can't Find What You're Looking For?",
@@ -186,9 +186,11 @@ const SITE_CONTENT = {
       { name: "product", label: "Product Needed", type: "textarea", required: true, placeholder: "Describe what you're looking for" },
       { name: "quantity", label: "Quantity", type: "text", required: false, placeholder: "e.g. 1 piece, 50 units, 500+ units" },
       { name: "budget", label: "Budget", type: "text", required: false, placeholder: "e.g. $500–$1,000" },
-      { name: "timeline", label: "Timeline", type: "text", required: false, placeholder: "e.g. Needed by December 2026" },
-      { name: "photos", label: "Upload Inspiration Photos", type: "file", required: false }
-    ]
+      { name: "timeline", label: "Timeline", type: "text", required: false, placeholder: "e.g. Needed by December 2026" }
+    ],
+    // Shown above the submit button on the homepage and business request forms.
+    // Our Web3Forms plan doesn't support file uploads, so files come by email.
+    filesNote: "Have artwork, photos, or specifications? Submit your request, then email your files to {email} with your name or company name."
   },
 
   // ==========================================================================
@@ -209,8 +211,7 @@ const SITE_CONTENT = {
       { name: "customization", label: "Customization specifications", type: "textarea", required: false, placeholder: "Logo or branding, print or embroidery method, colors, labels, packaging" },
       { name: "destination", label: "Destination", type: "text", required: false, placeholder: "City and state, or ZIP code" },
       { name: "timeline", label: "Target delivery date", type: "text", required: false, placeholder: "e.g. Needed by March 2027" },
-      { name: "budget", label: "Target budget or unit price", type: "text", required: false, placeholder: "Optional" },
-      { name: "files", label: "Upload specifications, artwork, or reference photos", type: "file", required: false, accept: "image/*,.pdf", hint: "You can attach images or PDFs." }
+      { name: "budget", label: "Target budget or unit price", type: "text", required: false, placeholder: "Optional" }
     ]
   },
 

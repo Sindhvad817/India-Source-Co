@@ -167,6 +167,15 @@ where it came from:
   This is remembered for 90 days in the visitor's own browser and is sent
   only when they submit a form.
 
+**No file uploads.** Our Web3Forms plan (Free) doesn't support attachments, so
+the forms have no upload field. A note above the submit button asks visitors
+to email artwork, photos, or specifications to the company email after
+submitting (`filesNote` in `site-content.js`). Don't add `type: "file"`
+fields unless the Web3Forms plan is upgraded to one that supports uploads.
+A success message is shown only when Web3Forms returns HTTP OK with
+`success: true`; failures log the HTTP status and Web3Forms' message to the
+browser console (never the access key or form data).
+
 The privacy policy (`website/privacy.md`, served at `/privacy`) describes
 exactly these forms, Web3Forms, this browser storage, and Vercel hosting.
 If you add analytics, cookies, new form fields, or another service, update

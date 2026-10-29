@@ -13,10 +13,10 @@ This policy explains what information we collect through indiasourceco.com, how 
 
 We collect the information you choose to send us:
 
-- **Custom Request form:** your name, email address, and, if you provide them, your phone number, a description of what you're looking for, quantity, budget, timeline, and any photos you upload.
-- **Business request form** (on our business pages): your name, email address, and, if you provide them, your company name, phone number, product requirements, quantities, customization specifications, destination, target delivery date, budget or target price, and any images or PDF files you upload, such as specifications or artwork.
+- **Custom Request form:** your name, email address, and, if you provide them, your phone number, a description of what you're looking for, quantity, budget, and timeline.
+- **Business request form** (on our business pages): your name, email address, and, if you provide them, your company name, phone number, product requirements, quantities, customization specifications, destination, target delivery date, and budget or target price.
 - **Contact form:** your name, email address, and message.
-- **Email:** anything you send to us directly.
+- **Email:** anything you send to us directly, including artwork, photos, or specifications you email after submitting a request. Our website forms don't accept file uploads.
 
 Please don't include sensitive information such as payment card numbers, government ID numbers, or health information in a form or email. If you're asking about children's clothing, details like age and size are all we need.
 
@@ -47,7 +47,7 @@ We do not currently use analytics or advertising services such as Google Analyti
 
 ## How forms are processed
 
-Our forms are delivered through **Web3Forms**, a form-processing service. When you submit a form, your browser sends the information, including any photos you attach, to Web3Forms, which forwards it to our email inbox. Web3Forms handles this information under its own privacy policy, available at [web3forms.com](https://web3forms.com).
+Our forms are delivered through **Web3Forms**, a form-processing service. When you submit a form, your browser sends the information to Web3Forms, which forwards it to our email inbox. Web3Forms handles this information under its own privacy policy, available at [web3forms.com](https://web3forms.com).
 
 ## Website hosting
 

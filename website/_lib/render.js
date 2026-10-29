@@ -224,9 +224,6 @@ function fieldHtml(f, idPrefix) {
   let control;
   if (f.type === "textarea") {
     control = `<textarea id="${id}" name="${f.name}" ${reqAttr}${placeholder}></textarea>`;
-  } else if (f.type === "file") {
-    control = `<input type="file" id="${id}" name="${f.name}" ${reqAttr} accept="${escapeHtml(f.accept || "image/*")}" multiple />
-        <div class="field-hint">${escapeHtml(f.hint || "You can attach one or more photos.")}</div>`;
   } else {
     control = `<input type="${f.type}" id="${id}" name="${f.name}" ${reqAttr}${placeholder} />`;
   }
@@ -265,6 +262,7 @@ function formHtml(content, opts) {
             <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
             <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
             ${fields}
+            ${opts.note ? `<p class="field-hint form-files-note">${opts.note}</p>` : ""}
             <button type="submit" class="btn btn-primary btn-block">${escapeHtml(opts.submitLabel)}</button>
             <div class="form-status" id="${opts.statusId}" role="status" aria-live="polite"></div>
           </form>`;
@@ -294,7 +292,11 @@ export function customRequests(content, page) {
     pagePath: p.path || "/",
     successMessage: c.formSuccessMessage,
     errorMessage: c.formErrorMessage,
-    submitLabel: "Submit Request"
+    submitLabel: "Submit Request",
+    // "{email}" in the note becomes a mailto link
+    note: c.filesNote
+      ? escapeHtml(c.filesNote).replace("{email}", `<a href="mailto:${escapeHtml(content.company.email)}">${escapeHtml(content.company.email)}</a>`)
+      : ""
   });
 
   return `

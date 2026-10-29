@@ -108,15 +108,20 @@
           headers: { Accept: "application/json" },
           body: new FormData(form)
         });
-        const result = await response.json();
+        let result = null;
+        try { result = await response.json(); } catch (err) { /* not JSON */ }
 
-        if (result.success) {
+        // Delivered only when the response is OK and Web3Forms confirms success
+        if (response.ok && result && result.success === true) {
           showStatus("success", successMessage);
           form.reset();
         } else {
+          // Status and the service's message only — never the access key or form data
+          console.warn("Form delivery failed:", response.status, result && result.message ? result.message : "(no message)");
           showStatus("error", `${errorMessage} ${contactEmail}.`);
         }
       } catch (err) {
+        console.warn("Form delivery failed: network error", err && err.message);
         showStatus("error", `${errorMessage} ${contactEmail}.`);
       } finally {
         submitBtn.disabled = false;
