@@ -40,8 +40,8 @@ faqs:
     a: "Print colors can be matched as closely as the material and print method allow, but jute's natural tan background and coarse texture change how inks look. Send color references, and ask for a printed sample or proof where the supplier offers one."
   - q: "Can we see a sample before ordering?"
     a: "Where a supplier offers samples, yes. Whether a sample is available for your specification, and any cost for it, is confirmed in your quote."
-  - q: "Can we call our jute bags biodegradable or eco-friendly?"
-    a: "Be careful. Natural jute is a plant fiber, but laminations, synthetic trims, and some inks change how a bag breaks down. Environmental marketing claims in the US are covered by the FTC's Green Guides, so describe the specific materials rather than making broad claims you can't support."
+  - q: "Are jute bags a sustainable option for custom branded merchandise?"
+    a: "Jute is a natural, plant-based fiber that offers businesses an attractive alternative to conventional plastic bags. Our custom jute bags can be personalized with your company logo, colors, and design preferences, making them a practical choice for retail packaging, promotional events, corporate gifts, and branded merchandise.\n\nMaterial options, printing methods, and customization details are confirmed during the quotation process."
 ---
 ## Choosing the material
 

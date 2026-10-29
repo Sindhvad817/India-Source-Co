@@ -85,7 +85,9 @@ requestOnPage: true
         {%- for f in faqs %}
         <div class="faq-item">
           <h3>{{ f.q }}</h3>
-          <p>{{ f.a }}</p>
+          {%- for para in f.a.split("\n\n") %}
+          <p>{{ para }}</p>
+          {%- endfor %}
         </div>
         {%- endfor %}
         <!-- unique:end -->
