@@ -130,7 +130,7 @@ const SITE_CONTENT = {
       { title: "Educational Materials", image: "assets/img/collections/diwali-craft-kit.webp", imageAlt: "Personalized Diwali craft kit: a printed satin drawstring bag, wooden cutouts to paint including a lotus, Ganesha, and a Happy Diwali hanging, with six paint pots and a brush", description: "Curriculum, books, and classroom resources." },
       { title: "Home Décor", image: "assets/img/collections/home-decor.webp", imageAlt: "Five decorative tea-light candle holders wrapped in green, orange, red, pink, and blue thread with a woven gold ribbon pattern", description: "Textiles, art, and accents for the home." },
       { title: "Corporate Gifts", href: "/corporate-gifts/corporate-diwali-gifts", image: "assets/img/collections/corporate-gift-box.webp", imageAlt: "Pink gift box with gold paisley print and a brass clasp, with two matching pink and gold tea-light holders decorated with kundan stones, surrounded by flowers", description: "Branded and curated gifting for teams and clients." },
-      { title: "Custom Branded Items", href: "/sourcing-from-india", image: "", description: "Custom branded merchandise, promotional products, and packaging made to your design." }
+      { title: "Custom Branded Items", href: "/sourcing-from-india", image: "assets/img/collections/custom-branded-items.webp", imageAlt: "Example of branded merchandise with a sample logo: a jute tote bag, mug, kraft gift box, notebook, pen, canvas pouch, and folded green T-shirt", description: "Custom branded merchandise, promotional products, and packaging made to your design." }
     ],
     footnote: "Don't see what you're picturing? That's the point — tell us what you need below."
   },
