@@ -123,10 +123,10 @@ const SITE_CONTENT = {
     heading: "Featured Collections",
     intro: "A curated look at what we source and make — not an exhaustive catalog. Every collection is a starting point for a conversation, not the limit of what's possible.",
     collections: [
-      { title: "Women's Fashion", href: "/custom-indian-clothing/custom-lehenga", image: "assets/img/collections/womens-fashion.webp", imageAlt: "Woman wearing a bright pink traditional Indian lehenga with gold woven motifs, a matching draped dupatta, and gold jewelry", description: "Sarees, lehengas, everyday and occasion wear." },
+      { title: "Women's Fashion", href: "/custom-indian-clothing/custom-lehenga", image: "assets/img/collections/womens-mint-kurta-set.webp", imageAlt: "Mint green flared kurta set with gold embroidered borders, styled with a teal bandhani dupatta with gold embellishment, displayed on a mannequin", description: "Sarees, lehengas, everyday and occasion wear." },
       { title: "Men's Fashion", href: "/custom-indian-clothing/custom-sherwani", image: "assets/img/collections/mens-fashion.webp", imageAlt: "Plum sherwani-style jacket with multicolor floral embroidery, a mandarin collar, gold buttons, and a brooch, displayed on a mannequin", description: "Sherwanis, kurtas, and tailored occasion wear." },
       { title: "Kids' Fashion", href: "/indian-wedding/kids-wedding-outfits", image: "assets/img/collections/kids-fashion.webp", imageAlt: "Girl wearing a purple traditional outfit with silver floral embroidery and a flowing purple skirt", description: "Festival and celebration wear for little ones." },
-      { title: "Wedding Collection", image: "", description: "Attire, favors, welcome bags, and décor." },
+      { title: "Wedding Collection", image: "assets/img/collections/womens-fashion.webp", imageAlt: "Woman wearing a bright pink traditional Indian lehenga with gold woven motifs, a matching draped dupatta, and gold jewelry", description: "Attire, favors, welcome bags, and décor." },
       { title: "Educational Materials", image: "", description: "Curriculum, books, and classroom resources." },
       { title: "Home Décor", image: "assets/img/collections/home-decor.webp", imageAlt: "Five decorative tea-light candle holders wrapped in green, orange, red, pink, and blue thread with a woven gold ribbon pattern", description: "Textiles, art, and accents for the home." },
       { title: "Corporate Gifts", href: "/corporate-gifts/corporate-diwali-gifts", image: "", description: "Branded and curated gifting for teams and clients." },
