@@ -174,6 +174,13 @@ h3 { font-size: 1.25rem; line-height: 1.3; }
   color: var(--color-ink);
 }
 .primary-nav { display: flex; align-items: center; gap: 1.75rem; }
+/* Between the mobile-menu breakpoint and 1180px, tighten the link spacing
+   (28px at 1180px down to 14px at 1061px) so the header stays on one line.
+   At 1180px and wider the header is unchanged. */
+@media (min-width: 1061px) and (max-width: 1179px) {
+  .primary-nav { gap: clamp(0.875rem, 11.76vw - 110.8px, 1.75rem); }
+  .brand-name { white-space: nowrap; }
+}
 .primary-nav a {
   font-size: 0.92rem;
   font-weight: 500;
@@ -669,7 +676,8 @@ h3 { font-size: 1.25rem; line-height: 1.3; }
 .footer-inner a.social-link:hover { color: var(--color-dark); }
 
 /* Footer "Explore" links to category pages (shown only when pages exist) */
-.footer-explore { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 1rem; margin: 0.4rem 0 0.6rem; font-size: 0.8rem; }
+.footer-explore { display: flex; flex-direction: column; align-items: center; gap: 0.2rem; margin: 0.4rem 0 0.6rem; font-size: 0.8rem; }
+.footer-explore-group { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.2rem 1rem; }
 .footer-explore-label { color: rgba(255, 255, 255, 0.45); text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.72rem; }
 .footer-sep { color: rgba(255, 255, 255, 0.35); margin: 0 0.25rem; white-space: pre; }
 @media (max-width: 520px) {
@@ -708,6 +716,7 @@ h3 { font-size: 1.25rem; line-height: 1.3; }
 .landing-hero-copy h1 { margin-top: 1rem; font-size: clamp(2.1rem, 1.6rem + 2vw, 3.2rem); line-height: 1.1; color: #fff; }
 .landing-hero-copy .hero-sub { margin-top: 1.25rem; font-size: 1.08rem; line-height: 1.7; color: rgba(255, 255, 255, 0.78); }
 .landing-hero-copy .hero-actions { margin-top: 2rem; justify-content: flex-start; }
+.landing-hero-grid--text { grid-template-columns: minmax(0, 760px); }
 .landing-hero-media { margin: 0; }
 .landing-hero-media img {
   width: 100%;
@@ -759,3 +768,7 @@ h3 { font-size: 1.25rem; line-height: 1.3; }
   .landing-hero { padding: 3rem 1.25rem 4rem; }
   .landing-hero-copy .hero-actions { flex-direction: column; align-items: stretch; }
 }
+
+/* Text link under a "Who We Serve" card */
+.audience-link { display: inline-block; margin-top: 1rem; font-size: 0.9rem; font-weight: 600; color: var(--color-accent-deep); }
+.audience-link:hover { text-decoration: underline; }

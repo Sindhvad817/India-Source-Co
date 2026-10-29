@@ -85,3 +85,5 @@ Coordinated family outfits photograph beautifully and are a common request. The 
 - **What they should match**, if anything
 - **Comfort needs**, such as sensitive skin or a preference for no heavy embellishment
 - **A budget range**
+
+Stocking kids' ethnic wear for a store? See [private-label Indian ethnic wear](/custom-manufacturing/private-label-indian-ethnic-wear).

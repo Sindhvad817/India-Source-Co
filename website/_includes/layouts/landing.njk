@@ -5,18 +5,21 @@ requestOnPage: true
 {#- Landing page. Content comes from the page's Markdown file: front matter
     (h1, intro, image, faqs, related, inquiryCategory…) plus the body. -#}
 {%- set pagePath = page.url | cleanUrl -%}
+{%- set isBusiness = audience == "business" -%}
   <section class="hero landing-hero">
     <div class="grid-backdrop" aria-hidden="true"></div>
-    <div class="landing-hero-grid">
+    <div class="landing-hero-grid{% if not image %} landing-hero-grid--text{% endif %}">
       <div class="landing-hero-copy">
         <nav class="breadcrumbs" aria-label="Breadcrumb">
           <ol>
             <li><a href="/">Home</a></li>
+            {%- if cluster %}
             <li>{% if cluster.url %}<a href="{{ cluster.url }}">{{ cluster.label }}</a>{% else %}<span>{{ cluster.label }}</span>{% endif %}</li>
+            {%- endif %}
             <li aria-current="page">{{ breadcrumb }}</li>
           </ol>
         </nav>
-        <span class="eyebrow">{{ cluster.label }}</span>
+        <span class="eyebrow">{{ eyebrow or cluster.label }}</span>
         <h1>{{ h1 }}</h1>
         <!-- unique:start -->
         {%- for p in intro %}
@@ -28,12 +31,14 @@ requestOnPage: true
           <a class="btn btn-secondary btn-on-dark" href="#how-it-works">How ordering works</a>
         </div>
       </div>
+      {%- if image %}
       <figure class="landing-hero-media">
         <img src="{{ image }}" alt="{{ imageAlt }}" width="800" height="1000" fetchpriority="high" decoding="async" />
         {%- if imageCaption %}
         <figcaption>{{ imageCaption }} Photos show examples of styles we source; the exact item pictured may not be available or reproducible.</figcaption>
         {%- endif %}
       </figure>
+      {%- endif %}
     </div>
   </section>
 
@@ -53,7 +58,7 @@ requestOnPage: true
         <p class="section-intro">Every custom request is handled personally, from your first message to delivery.</p>
       </div>
       <div class="steps-grid">
-        {%- for step in process %}
+        {%- for step in (business.steps if isBusiness else process) %}
         <div class="step-card">
           <div class="step-number">{{ step.number }}</div>
           <h3>{{ step.title }}</h3>
@@ -61,7 +66,11 @@ requestOnPage: true
         </div>
         {%- endfor %}
       </div>
+      {%- if isBusiness %}
+      <p class="landing-note"><strong>What depends on the product and supplier:</strong> {{ business.note }}</p>
+      {%- else %}
       <p class="landing-note"><strong>What depends on our suppliers:</strong> custom colors, linings, specific fabrics and handwork techniques, larger or matching quantities, and other specialized production depend on what the designers, artisans, and manufacturers we work with can provide for your request. We confirm what's possible in your quote, before anything is made.</p>
+      {%- endif %}
     </div>
   </section>
 
@@ -90,12 +99,12 @@ requestOnPage: true
     <div class="section-inner">
       <div class="section-head">
         <span class="eyebrow">Explore</span>
-        <h2>Related custom requests</h2>
+        <h2>{{ relatedHeading or "Related custom requests" }}</h2>
       </div>
       <div class="gallery-grid related-grid">
         {%- for r in relatedPages %}
         <a class="collection-card" href="{{ r.url | cleanUrl }}">
-          <div class="collection-media"><img src="{{ r.data.image }}" alt="{{ r.data.imageAlt }}" width="800" height="1000" loading="lazy" decoding="async" /></div>
+          <div class="collection-media">{% if r.data.image %}<img src="{{ r.data.image }}" alt="{{ r.data.imageAlt }}" width="800" height="1000" loading="lazy" decoding="async" />{% else %}<span class="placeholder-mark">{{ r.data.exploreLabel | first }}</span>{% endif %}</div>
           <div class="collection-body">
             <h3>{{ r.data.exploreLabel }}</h3>
             <p>{{ r.data.cardSummary }}</p>
@@ -108,5 +117,5 @@ requestOnPage: true
   {%- endif %}
 
   <section class="section section-alt section-request" id="custom-requests">
-    <div class="section-inner">{{ render.customRequests(site, { path: pagePath, category: inquiryCategory, heading: requestHeading, body: requestBody }) | safe }}</div>
+    <div class="section-inner">{{ render.customRequests(site, { path: pagePath, category: inquiryCategory, heading: requestHeading, body: requestBody, audience: audience }) | safe }}</div>
   </section>

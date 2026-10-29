@@ -65,6 +65,8 @@ Indian lehengas are known for their handwork. Which techniques are available for
 - **Weight:** heavier embellishment means a heavier garment. If you'll wear the lehenga for many hours, say so.
 - **Time:** dense handwork takes longer to complete than lighter detailing, so it affects how early you should start.
 
+Designers and brands ordering embroidered pieces in volume can see our guide to [hand embroidery from India](/custom-manufacturing/hand-embroidery).
+
 ## Silhouette, blouse, and dupatta
 
 A lehenga skirt can be **A-line**, fully **flared** (often called kalidar, made from many panels), **mermaid** (fitted through the hips), or straight and panelled. For the blouse, think about the neckline, back design, sleeve length, and how much coverage you want. The dupatta can be draped many ways; some brides wear two — one over the head and one across the shoulders. Saving photos that show the back and the drape, not just the front, makes your request much clearer.
@@ -88,3 +90,5 @@ Have someone help you, measure over the undergarments you plan to wear, and keep
 ## Planning around your date
 
 We don't publish fixed timelines, because they depend on the fabric, the handwork, the number of outfits, and delivery. The best thing you can do is start early and include your date in your request. We'll tell you what's realistic before you approve anything.
+
+Run a boutique? See [private-label Indian ethnic wear](/custom-manufacturing/private-label-indian-ethnic-wear) for collections under your own label.

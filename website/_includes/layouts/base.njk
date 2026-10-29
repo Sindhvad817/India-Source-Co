@@ -49,7 +49,7 @@
       <a href="{{ hp }}#who-we-serve">Who We Serve</a>
       <a href="{{ hp }}#how-it-works">How It Works</a>
       <a href="{{ hp }}#gallery">Gallery</a>
-      <a href="{{ hp }}#custom-requests">Custom Requests</a>
+      <a href="/sourcing-from-india"{% if pagePath == "/sourcing-from-india" %} aria-current="page"{% endif %}>For Businesses</a>
       <a href="{{ hp }}#about">About</a>
       <a href="{{ hp }}#contact">Contact</a>
       <a href="{{ '' if requestOnPage else hp }}#custom-requests" class="nav-cta">Start a Custom Request</a>
@@ -65,10 +65,18 @@
 {{ content | safe }}
 </main>
 
-{%- set explore = [] -%}
+{#- Footer Explore links, grouped by audience (front matter: audience) -#}
+{%- set familyLinks = [] -%}
+{%- set businessLinks = [] -%}
 {%- for item in collections.explore -%}
-  {%- set explore = (explore.push({ url: item.url | cleanUrl, label: item.data.exploreLabel or item.data.title }), explore) -%}
+  {%- set link = { url: item.url | cleanUrl, label: item.data.exploreLabel or item.data.title } -%}
+  {%- if item.data.audience == "business" -%}
+    {%- set businessLinks = (businessLinks.push(link), businessLinks) -%}
+  {%- else -%}
+    {%- set familyLinks = (familyLinks.push(link), familyLinks) -%}
+  {%- endif -%}
 {%- endfor %}
+{%- set explore = [{ label: "For families", links: familyLinks }, { label: "For businesses", links: businessLinks }] -%}
 
 <footer class="site-footer">
   <div class="footer-inner">

@@ -69,7 +69,7 @@ Real diyas and candles are traditional, and many families keep them for the puja
 
 ## For temples, schools, offices, and community events
 
-Larger celebrations usually need more of fewer designs, such as matching diyas for every table, torans for several doorways, or decorations for a stage. Including the number of pieces, the size of the space, and whether the décor needs to be reusable next year helps us bring back the right options. Larger quantities and matching designs depend on supplier availability, and we'll confirm them before you commit.
+Larger celebrations usually need more of fewer designs, such as matching diyas for every table, torans for several doorways, or decorations for a stage. Including the number of pieces, the size of the space, and whether the décor needs to be reusable next year helps us bring back the right options. Larger quantities and matching designs depend on supplier availability, and we'll confirm them before you commit. For gifts for employees and clients, see [corporate Diwali gifts](/corporate-gifts/corporate-diwali-gifts).
 
 ## What to include in your request
 

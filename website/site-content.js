@@ -76,6 +76,7 @@ const SITE_CONTENT = {
 
   // ==========================================================================
   // 4. WHO WE SERVE — one card per audience. "examples" becomes a bullet list.
+  //    Optional "link" adds a text link under the card to a related page.
   // ==========================================================================
   whoWeServe: {
     heading: "Who We Serve",
@@ -91,7 +92,8 @@ const SITE_CONTENT = {
         icon: "briefcase",
         title: "Businesses",
         description: "Products and services include:",
-        examples: ["Corporate gifts", "Employee appreciation", "Promotional merchandise", "Uniforms", "Office décor", "Branded merchandise", "Client gifts"]
+        examples: ["Corporate gifts", "Employee appreciation", "Promotional merchandise", "Uniforms", "Office décor", "Branded merchandise", "Client gifts"],
+        link: { label: "Sourcing for businesses", href: "/sourcing-from-india" }
       },
       {
         icon: "book",
@@ -121,14 +123,14 @@ const SITE_CONTENT = {
     heading: "Featured Collections",
     intro: "A curated look at what we source and make — not an exhaustive catalog. Every collection is a starting point for a conversation, not the limit of what's possible.",
     collections: [
-      { title: "Women's Fashion", image: "assets/img/collections/womens-fashion.webp", imageAlt: "Woman wearing a bright pink traditional Indian lehenga with gold woven motifs, a matching draped dupatta, and gold jewelry", description: "Sarees, lehengas, everyday and occasion wear." },
-      { title: "Men's Fashion", image: "assets/img/collections/mens-fashion.webp", imageAlt: "Plum sherwani-style jacket with multicolor floral embroidery, a mandarin collar, gold buttons, and a brooch, displayed on a mannequin", description: "Sherwanis, kurtas, and tailored occasion wear." },
-      { title: "Kids' Fashion", image: "assets/img/collections/kids-fashion.webp", imageAlt: "Girl wearing a purple traditional outfit with silver floral embroidery and a flowing purple skirt", description: "Festival and celebration wear for little ones." },
+      { title: "Women's Fashion", href: "/custom-indian-clothing/custom-lehenga", image: "assets/img/collections/womens-fashion.webp", imageAlt: "Woman wearing a bright pink traditional Indian lehenga with gold woven motifs, a matching draped dupatta, and gold jewelry", description: "Sarees, lehengas, everyday and occasion wear." },
+      { title: "Men's Fashion", href: "/custom-indian-clothing/custom-sherwani", image: "assets/img/collections/mens-fashion.webp", imageAlt: "Plum sherwani-style jacket with multicolor floral embroidery, a mandarin collar, gold buttons, and a brooch, displayed on a mannequin", description: "Sherwanis, kurtas, and tailored occasion wear." },
+      { title: "Kids' Fashion", href: "/indian-wedding/kids-wedding-outfits", image: "assets/img/collections/kids-fashion.webp", imageAlt: "Girl wearing a purple traditional outfit with silver floral embroidery and a flowing purple skirt", description: "Festival and celebration wear for little ones." },
       { title: "Wedding Collection", image: "", description: "Attire, favors, welcome bags, and décor." },
       { title: "Educational Materials", image: "", description: "Curriculum, books, and classroom resources." },
       { title: "Home Décor", image: "assets/img/collections/home-decor.webp", imageAlt: "Five decorative tea-light candle holders wrapped in green, orange, red, pink, and blue thread with a woven gold ribbon pattern", description: "Textiles, art, and accents for the home." },
-      { title: "Corporate Gifts", image: "", description: "Branded and curated gifting for teams and clients." },
-      { title: "Custom Branded Items", image: "", description: "Custom branded merchandise, promotional products, and packaging made to your design." }
+      { title: "Corporate Gifts", href: "/corporate-gifts/corporate-diwali-gifts", image: "", description: "Branded and curated gifting for teams and clients." },
+      { title: "Custom Branded Items", href: "/sourcing-from-india", image: "", description: "Custom branded merchandise, promotional products, and packaging made to your design." }
     ],
     footnote: "Don't see what you're picturing? That's the point — tell us what you need below."
   },
@@ -186,6 +188,29 @@ const SITE_CONTENT = {
       { name: "budget", label: "Budget", type: "text", required: false, placeholder: "e.g. $500–$1,000" },
       { name: "timeline", label: "Timeline", type: "text", required: false, placeholder: "e.g. Needed by December 2026" },
       { name: "photos", label: "Upload Inspiration Photos", type: "file", required: false }
+    ]
+  },
+
+  // ==========================================================================
+  // 6b. BUSINESS REQUESTS — the request form on business pages (sourcing,
+  //     custom manufacturing, corporate gifts). Same rules as above. Keep
+  //     required fields to a minimum: name, email, and product requirements.
+  // ==========================================================================
+  businessRequests: {
+    eyebrow: "Business Requests",
+    formHeading: "Request a business quote",
+    fields: [
+      { name: "company", label: "Company name", type: "text", required: false },
+      { name: "name", label: "Your name", type: "text", required: true },
+      { name: "email", label: "Work email", type: "email", required: true },
+      { name: "phone", label: "Phone", type: "tel", required: false },
+      { name: "product", label: "Product requirements", type: "textarea", required: true, placeholder: "Product type, materials, sizes, and how it will be used" },
+      { name: "quantity", label: "Quantity", type: "text", required: false, placeholder: "e.g. 500 units, or a range such as 300–1,000" },
+      { name: "customization", label: "Customization specifications", type: "textarea", required: false, placeholder: "Logo or branding, print or embroidery method, colors, labels, packaging" },
+      { name: "destination", label: "Destination", type: "text", required: false, placeholder: "City and state, or ZIP code" },
+      { name: "timeline", label: "Target delivery date", type: "text", required: false, placeholder: "e.g. Needed by March 2027" },
+      { name: "budget", label: "Target budget or unit price", type: "text", required: false, placeholder: "Optional" },
+      { name: "files", label: "Upload specifications, artwork, or reference photos", type: "file", required: false, accept: "image/*,.pdf", hint: "You can attach images or PDFs." }
     ]
   },
 

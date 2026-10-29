@@ -5,7 +5,7 @@ title: "Privacy Policy | India Source Co."
 description: "How India Source Co. handles the information you send through our website forms, how forms are processed, and what our site stores in your browser."
 eyebrow: "Legal"
 h1: "Privacy Policy"
-effectiveDate: "October 28, 2026"
+effectiveDate: "October 29, 2026"
 ---
 This policy explains what information we collect through indiasourceco.com, how we use it, and the choices you have. India Source Co. is operated by Miraaya LLC, 213 Longstone Drive, Cherry Hill, NJ 08003, USA. Questions about this policy can be sent to [hello@indiasourceco.com](mailto:hello@indiasourceco.com).
 
@@ -14,6 +14,7 @@ This policy explains what information we collect through indiasourceco.com, how 
 We collect the information you choose to send us:
 
 - **Custom Request form:** your name, email address, and, if you provide them, your phone number, a description of what you're looking for, quantity, budget, timeline, and any photos you upload.
+- **Business request form** (on our business pages): your name, email address, and, if you provide them, your company name, phone number, product requirements, quantities, customization specifications, destination, target delivery date, budget or target price, and any images or PDF files you upload, such as specifications or artwork.
 - **Contact form:** your name, email address, and message.
 - **Email:** anything you send to us directly.
 

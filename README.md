@@ -146,6 +146,15 @@ data (Service, BreadcrumbList, FAQPage — built from what the page shows),
 a sitemap entry, a footer Explore link, and a request form tagged with the
 page's inquiry category.
 
+**Business pages** (sourcing, custom manufacturing, corporate gifts) set
+`audience: business` in front matter. They use the business request form
+(`businessRequests` in `site-content.js`: company, product requirements,
+quantity, customization, destination, and more), the business ordering steps
+and availability note in `website/_data/business.js`, and appear under "For
+businesses" in the footer. The photo (`image`) is optional; leave it out
+rather than use a photo that doesn't show the product. Don't state that
+import registration or customs arrangements are in place until they are.
+
 ## Inquiry Tracking
 
 Every form submission includes hidden fields so each inquiry email shows

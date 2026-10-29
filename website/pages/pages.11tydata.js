@@ -12,8 +12,8 @@ export default {
   explore: true,
   permalink: (data) => `${data.page.filePathStem.replace(/^\/pages/, "")}.html`,
   eleventyComputed: {
-    ogImage: (data) => data.image,
-    ogImageAlt: (data) => data.imageAlt,
+    ogImage: (data) => data.image || undefined,
+    ogImageAlt: (data) => data.imageAlt || undefined,
     // Structured data built only from what the page itself shows
     schema: (data) => {
       const url = meta.url + cleanUrl(data.page.url);
@@ -31,7 +31,8 @@ export default {
             serviceType: data.service.type,
             description: data.description,
             url,
-            image: meta.url + data.image,
+            ...(data.image ? { image: meta.url + data.image } : {}),
+            ...(data.audience === "business" ? { audience: { "@type": "BusinessAudience" }, areaServed: { "@type": "Country", name: "United States" } } : {}),
             provider: { "@id": `${meta.url}/#organization` }
           },
           {

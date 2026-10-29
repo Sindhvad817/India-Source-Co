@@ -55,7 +55,7 @@ Choosing the right style for each event matters more than any single detail.
 
 **Silk, brocade, and jacquard** have woven patterns and a formal sheen. **Velvet** is rich and warm for winter weddings. **Raw silk** gives a crisp, structured look. **Linen and cotton blends** are lighter and suit daytime or warm-weather events.
 
-Embroidery can be dense or minimal. **Zardozi** (raised metallic thread) is the most formal. **Resham** (silk thread) can create colorful floral work like the jacket pictured. **Tone-on-tone** thread embroidery adds texture without competing with the bride's outfit. Mention how much detail you're comfortable wearing; it changes the options we look for. Specific fabrics and embroidery techniques depend on the artisans and suppliers available for your order, and we'll confirm them in your quote.
+Embroidery can be dense or minimal. **Zardozi** (raised metallic thread) is the most formal. **Resham** (silk thread) can create colorful floral work like the jacket pictured. **Tone-on-tone** thread embroidery adds texture without competing with the bride's outfit. Mention how much detail you're comfortable wearing; it changes the options we look for. Specific fabrics and embroidery techniques depend on the artisans and suppliers available for your order, and we'll confirm them in your quote. Brands ordering embroidered menswear in volume can see [hand embroidery from India](/custom-manufacturing/hand-embroidery) and [private-label ethnic wear](/custom-manufacturing/private-label-indian-ethnic-wear).
 
 ## Details that change the look
 

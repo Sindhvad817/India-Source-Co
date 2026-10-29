@@ -83,6 +83,12 @@
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
 
+      // The form has novalidate (so no-JS fallback still posts); check here
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
       if (form.access_key.value === "YOUR-WEB3FORMS-ACCESS-KEY-HERE") {
         showStatus("error", `This form isn't connected yet — the site owner needs to add a Web3Forms access key. In the meantime, email ${contactEmail}.`);
         return;

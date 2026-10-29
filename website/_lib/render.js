@@ -60,15 +60,17 @@ export function socialLinks(content, cls) {
 }
 
 // --------------------------------------------------------------------
-// Footer — "explore" is a list of { url, label } for landing pages that exist
+// Footer — "explore" is a list of groups { label, links: [{ url, label }] }
+// for landing pages that exist
 // --------------------------------------------------------------------
 export function footer(content, explore) {
   const year = new Date().getFullYear();
   // Avoid "Co.." when the name already ends with a period
   const copyrightName = escapeHtml(content.footer.copyrightName).replace(/\.$/, "");
-  const links = (explore || []).map((e) => `<a href="${escapeHtml(e.url)}">${escapeHtml(e.label)}</a>`).join("");
-  const exploreNav = links
-    ? `<nav class="footer-explore" aria-label="Explore"><span class="footer-explore-label">Explore</span>${links}</nav>`
+  const groups = (explore || []).filter((g) => g.links.length).map((g) => `
+      <div class="footer-explore-group"><span class="footer-explore-label">${escapeHtml(g.label)}</span>${g.links.map((e) => `<a href="${escapeHtml(e.url)}">${escapeHtml(e.label)}</a>`).join("")}</div>`).join("");
+  const exploreNav = groups
+    ? `<nav class="footer-explore" aria-label="Explore">${groups}</nav>`
     : "";
   return `
   <div style="text-align: center; line-height: 1.8;">
@@ -133,6 +135,7 @@ export function whoWeServe(content) {
         <h3>${escapeHtml(a.title)}</h3>
         <p class="audience-desc">${escapeHtml(a.description)}</p>
         <ul>${a.examples.map(e => `<li>${escapeHtml(e)}</li>`).join("")}</ul>
+        ${a.link ? `<a class="audience-link" href="${escapeHtml(a.link.href)}">${escapeHtml(a.link.label)} <span aria-hidden="true">→</span></a>` : ""}
       </div>
     `).join("");
 
@@ -222,8 +225,8 @@ function fieldHtml(f, idPrefix) {
   if (f.type === "textarea") {
     control = `<textarea id="${id}" name="${f.name}" ${reqAttr}${placeholder}></textarea>`;
   } else if (f.type === "file") {
-    control = `<input type="file" id="${id}" name="${f.name}" ${reqAttr} accept="image/*" multiple />
-        <div class="field-hint">You can attach one or more photos.</div>`;
+    control = `<input type="file" id="${id}" name="${f.name}" ${reqAttr} accept="${escapeHtml(f.accept || "image/*")}" multiple />
+        <div class="field-hint">${escapeHtml(f.hint || "You can attach one or more photos.")}</div>`;
   } else {
     control = `<input type="${f.type}" id="${id}" name="${f.name}" ${reqAttr}${placeholder} />`;
   }
@@ -274,6 +277,8 @@ function formHtml(content, opts) {
 export function customRequests(content, page) {
   const c = content.customRequests;
   const p = page || {};
+  // Business pages use the business form (company, specifications, destination…)
+  const b = p.audience === "business" ? content.businessRequests : null;
   const heading = p.heading || c.heading;
   const body = p.body || c.body;
   const bodyParas = body.map(t => `<p>${escapeHtml(t)}</p>`).join("");
@@ -282,8 +287,9 @@ export function customRequests(content, page) {
     id: "custom-request-form",
     statusId: "custom-request-status",
     fieldIdPrefix: "field-",
-    fields: c.fields,
-    subject: "New Custom Request — India Source Co.",
+    fields: b ? b.fields : c.fields,
+    // The category ("Business — …") already marks business requests in the subject
+    subject: b ? "New Request — India Source Co." : "New Custom Request — India Source Co.",
     category: p.category || "Homepage",
     pagePath: p.path || "/",
     successMessage: c.formSuccessMessage,
@@ -294,12 +300,12 @@ export function customRequests(content, page) {
   return `
       <div class="request-grid">
         <div class="request-intro">
-          <span class="eyebrow">Custom Requests</span>
+          <span class="eyebrow">${escapeHtml(b ? b.eyebrow : "Custom Requests")}</span>
           <h2>${escapeHtml(heading)}</h2>
           ${bodyParas}
         </div>
         <div class="request-form-card">
-          <h3>${escapeHtml(c.formHeading)}</h3>
+          <h3>${escapeHtml(b ? b.formHeading : c.formHeading)}</h3>
           ${form}
         </div>
       </div>
@@ -428,6 +434,7 @@ export function organization(content, siteUrl) {
     "@type": "Organization",
     "@id": `${siteUrl}/#organization`,
     name: content.company.name,
+    legalName: content.footer.legalEntity,
     url: `${siteUrl}/`,
     email: content.company.email,
     address: postalAddress(content.footer.businessAddress)
